@@ -14,7 +14,12 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType findOddOccurringValue() {
-
+        Arrays.sort(array);
+        for(int i =0 ; i < array.length ; i++){
+            if(getNumberOfOccurrences(array[i])%2!=0) {
+                return array[i];
+        }
+        }
         return array[array.length-1];
     }
 
