@@ -1,13 +1,19 @@
 package rocks.zipcode.io.quiz3.fundamentals;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author leon on 09/12/2018.
  */
 public class VowelUtils {
+    private static List<Character> vowels = Arrays.asList('a','e','i','o','u','A','E','I','O','U');
+
     public static Boolean hasVowels(String word) {
         for(int i =0;i<word.length();i++){
             char z = word.charAt(i);
-            if(z =='a' || z=='e' || z=='i' || z=='o' || z=='u' || z =='A' || z=='E' || z=='I' || z=='O' || z=='U'){
+            if(vowels.contains(z)){
                 return true;
             }
         }
@@ -17,7 +23,7 @@ public class VowelUtils {
     public static Integer getIndexOfFirstVowel(String word) {
         for(int i = 0 ; i<word.length(); i++){
             char z = word.charAt(i);
-            if(z =='a' || z=='e' || z=='i' || z=='o' || z=='u' || z =='A' || z=='E' || z=='I' || z=='O' || z=='U'){
+            if(vowels.contains(z)){
                 return i;
             }
         }
@@ -27,8 +33,7 @@ public class VowelUtils {
 
     public static Boolean startsWithVowel(String word) {
         char z = word.charAt(0);
-
-        if(z =='a' || z=='e' || z=='i' || z=='o' || z=='u' || z =='A' || z=='E' || z=='I' || z=='O' || z=='U'){
+        if(vowels.contains(z)){
             return true;
         }
         return false;
@@ -36,8 +41,7 @@ public class VowelUtils {
 
     public static Boolean isVowel(Character character) {
         char z = character;
-
-        if(z =='a' || z=='e' || z=='i' || z=='o' || z=='u' || z =='A' || z=='E' || z=='I' || z=='O' || z=='U'){
+        if(vowels.contains(z)){
             return true;
         }
         return null;

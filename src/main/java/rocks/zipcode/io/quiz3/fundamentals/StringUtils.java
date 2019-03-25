@@ -3,9 +3,7 @@ package rocks.zipcode.io.quiz3.fundamentals;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author leon on 09/12/2018.
@@ -36,22 +34,20 @@ public class StringUtils {
     }
 
     public static String[] getAllSubStrings(String string) {
-        List list = new ArrayList<String>();
 
-        for(int i = 0 ; i < string.length(); i++){
-            int j = i;
-            for(j = i+1; j <= string.length(); j++){
-                list.add(string.substring(i,j));
+        Set<String> list = new HashSet<>();
+        for(int i = 0; i<string.length();i++){
+            for(int j=i+1; j<=string.length();j++){
+                String sub = string.substring(i,j);
+                list.add(sub);
             }
         }
-        String[] newString = new String[list.size()];
-        for(int i = 0 ; i < list.size(); i++){
-            newString[i] = list.get(i).toString();
-        }
-        return newString;
+        String[] all = new String[list.size()];
+        return list.toArray(all);
+
     }
 
     public static Integer getNumberOfSubStrings(String input){
-        return getAllSubStrings(input).length-1;
+        return getAllSubStrings(input).length;
     }
 }
